@@ -331,4 +331,11 @@ public class ForegroundService extends Service {
             }, delay);
         }
     }
+
+    @Override
+    public void onTimeout(int type, int reason) {
+        Log.d("ForegroundService", "FGS timed out. Type: " + type + " Reason: " + reason);
+        stopForeground(true);
+        stopSelf();
+    }
 }
